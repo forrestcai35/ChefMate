@@ -30,7 +30,7 @@
     <br />
     <a href="https://github.com/forrestcai35/ChefMate/issues">Report Bug</a>
     ·
-    <a href="https://github.com/forrestcai35/ChefMate/issues">Request Feature</a>
+    <a href="https://github.com/forrestcai35/ChefMate/pulls">Request Feature</a>
   </p>
 </div>
 
