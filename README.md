@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/forrestcai35/ChefMate">
-    <img src="ChefMate/Sprites/ChefMateIcon.ico" alt="Logo" width="80" height="80">
+    <img src="Sprites/ChefMateIcon.ico" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">ChefMate</h3>
