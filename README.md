@@ -36,34 +36,10 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Text
+ChefMate is a chatbot-style assistant with integrated recipe storage capabilities.
 
 
 ### Built With
@@ -109,7 +85,7 @@ Make sure you have Python 3.+ installed. Installation can be found at [https://w
 ## Usage
 
 
-You can use ChefMate to store recipes from [allrecipes.com](allrecipes.com) and [foodnetwork.com](foodnetwork.com). 
+Currently you can use ChefMate to store recipes from [allrecipes.com](allrecipes.com) and [foodnetwork.com](foodnetwork.com). 
 
 ChefMate is also able to create its own unique recipes which you can add to the recipe book by prompting "add recipe".
 
@@ -121,9 +97,9 @@ ChefMate is also able to create its own unique recipes which you can add to the 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Any contributions you make are **greatly appreciated**. 
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
