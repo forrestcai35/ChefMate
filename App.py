@@ -7,6 +7,8 @@ from ttkthemes import ThemedTk
 
 # Run this to build.exe file
 #pyinstaller --onefile --icon = ChefMateIcon.ico --noconsole App.py 
+
+
 class RecipeApp():
 
     def __init__(self):
@@ -114,11 +116,11 @@ class RecipeApp():
     def chefmate_confirm(self, text):
         """
         """
-        self.clear_textbox(self.chefmatetextbox)
-        self.update_textbox(self.chefmatetextbox, text)
         self.new = tk.Tk()
         self.new.title("Notification!")
-        self.new.geometry("200x60")
+        self.new.geometry("250x100")
+        confirmText = tk.Label(self.new, text = text, font = ('Helvetica', 12))
+        confirmText.pack()
         yesButton = tk.Button(
             self.new, text = "Yes add a recipe",font = ('Helvetica', 12), command = self.chefmate_add)
         yesButton.pack()
@@ -132,9 +134,11 @@ class RecipeApp():
         """
         self.clear_textbox(self.chefmatetextbox)
         try:
+            self.ChefMate.temp = 0.3
             self.data.insert_recipe(
-                (Recipe._fromString(self.ChefMate.ChefMateReply("Please add the recipe you just outputted in the format"))))
+                (Recipe._fromString(self.ChefMate.ChefMateReply("Please add the recipe you just outputted in the format given."))))
             self.update_textbox(self.chefmatetextbox, "Recipe has been added!")
+            self.ChefMate.temp = 1
         except Exception as e: 
             self.update_textbox(self.chefmatetextbox, "Your recipe has already been added!")
         except:

@@ -11,10 +11,12 @@ client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 class ChefMate():
     def __init__(self):
         """
+        
         """ 
         self.messages=[{"role": "system","content": ("You are named ChefMate and you should respond to queries about cooking or baking. " +
-        "If asked to add a recipe please follow this format exactly: (Name: name Ingredients:ingredients Instructions:instructions). "
-        + "")}]
+        "If asked to format a recipe follow the format: 'Name: recipe name Ingredients:ingredients Instructions:instructions'. "
+        )}]
+        self.temp = 1.0
 
     def ChefMateReply(self,user_input):
         """
@@ -28,7 +30,7 @@ class ChefMate():
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=self.messages,
-                temperature=0.7,
+                temperature=self.temp,
                 max_tokens=500,
                 top_p=1,
                 frequency_penalty=0,

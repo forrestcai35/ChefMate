@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import json
 from collections import defaultdict
 from pymongo import MongoClient
 
@@ -61,6 +60,9 @@ class MongoDB():
         """Delete a recipe by name."""
         
         self.collection.delete_one({"name": recipe_name})
+        
+    def empty_database(self):
+        self.db.movies.deleteMany({})
 
 def fet_par_recipe(url):
     """
@@ -164,7 +166,6 @@ def _fromString(string):
             recipe_dict[temp].append(line[2:])
 
     return recipe_dict
-
 
 
 #Testing

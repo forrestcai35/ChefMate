@@ -5,3 +5,4 @@ import wave
 
 model = whisper.load_model("base")
 
+
