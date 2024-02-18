@@ -68,30 +68,27 @@ Text
 
 ### Built With
 
-![Python](https://img.shields.io/badge/Python-%233776AB?style=for-the-badge&logo=Python&labelColor=black&link=https%3A%2F%2Fwww.python.org%2F)
-![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C?style=for-the-badge&logo=PyTorch&labelColor=black&link=https%3A%2F%2Fpytorch.org%2F)
-![OpenAI](https://img.shields.io/badge/OpenAI-%23412991?style=for-the-badge&logo=OpenAI&labelColor=black&link=https%3A%2F%2Fopenai.com%2F)
-![Static Badge](https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=MongoDB&labelColor=black&link=https%3A%2F%2Fwww.mongodb.com%2F)
-
-
+[![Python][python-shield]][python-url]
+[![PyTorch][pytorch-shield]][pytorch-url]
+[![OpenAI][openai-shield]][openai-url]
+[![MongoDB][mongodb-shield]][mongodb-url]
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is how to get ChefMate up and running on your system.
 
 ### Prerequisites
 
-Make sure you have Python 3.+ installed. Installation can be found [https://www.python.org/](https://www.python.org/)
+Make sure you have Python 3.+ installed. Installation can be found at [https://www.python.org/](https://www.python.org/)
 
 ### Installation
 
 1. Get a free API Key at [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 2. Clone the repo
    ```sh
-   git clone https://github.com/forrestcai35/ChefMate.git
+   git clone https://github.com/forrestcai35/ChefMate
    ```
 3. Install packages
    ```sh
@@ -111,8 +108,10 @@ Make sure you have Python 3.+ installed. Installation can be found [https://www.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Text
-_For more examples, please refer to the [Documentation](https://example.com)_
+
+You can use ChefMate to store recipes from [allrecipes.com](allrecipes.com) and [foodnetwork.com](foodnetwork.com). 
+
+ChefMate is also able to create its own unique recipes which you can add to the recipe book by prompting "add recipe".
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -171,4 +170,17 @@ Project Link: [https://github.com/forrestcai35/ChefMate](https://github.com/forr
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/forrestcai
+
+[python-shield]: https://img.shields.io/badge/Python-%233776AB?style=for-the-badge&logo=Python&labelColor=black
+[python-url]: https://python.org
+
+[pytorch-shield]: https://img.shields.io/badge/PyTorch-%23EE4C2C?style=for-the-badge&logo=PyTorch&labelColor=black
+[pytorch-url]: https://pytorch.org
+
+[openai-shield]: https://img.shields.io/badge/OpenAI-%23412991?style=for-the-badge&logo=OpenAI&labelColor=black
+[openai-url]: https://openai.com
+
+[mongodb-shield]: https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=MongoDB&labelColor=black
+[mongodb-url]: https://mongodb.com
+
 
