@@ -1,0 +1,1 @@
+([('App', '/Users/forrest/Projects/ChefMate/dist/App', 'EXECUTABLE')],)
