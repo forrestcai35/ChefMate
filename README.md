@@ -1,16 +1,8 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
 
 
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
@@ -39,7 +31,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-ChefMate is a chatbot-style assistant with integrated recipe storage capabilities.
+ChefMate is a chatbot-style assistant with integrated recipe storage capabilities that will adapt to your culinary prefernces as you use it!
 
 
 ### Built With
@@ -57,7 +49,7 @@ This is how to get ChefMate up and running on your system.
 
 ### Prerequisites
 
-Make sure you have Python 3.+ installed. Installation can be found at [https://www.python.org/](https://www.python.org/)
+Make sure you have Python 3.+ installed, installation can be found at [https://www.python.org/](https://www.python.org/)
 
 ### Installation
 
@@ -77,7 +69,6 @@ Make sure you have Python 3.+ installed. Installation can be found at [https://w
    OPENAI_API_KEY = 'ENTER YOUR API KEY';
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -89,7 +80,7 @@ Currently you can use ChefMate to store recipes from [allrecipes.com](allrecipes
 
 ChefMate is also able to create its own unique recipes which you can add to the recipe book by prompting "add recipe".
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -108,7 +99,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -117,7 +108,6 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 

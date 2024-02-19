@@ -13,7 +13,7 @@ class RecipeApp():
 
     def __init__(self):
         """
-        Initializes the Recipe App.
+        Initializes the main window for the application.
         """
 
         self.root = ThemedTk(theme="equilux")
@@ -68,8 +68,12 @@ class RecipeApp():
         """
         Updates a textbox with a text value.
 
-        Parameter text:
-        Precondition: text
+        Parameter textbox: The textbox to be updated.
+        Precondition: textbox is a textbox object.
+
+        Parameter text: The text to update the textbox with.
+        Precondition: text is a string.
+
         """
         assert isinstance(textbox, tk.Text)
 
@@ -81,6 +85,10 @@ class RecipeApp():
 
     def clear_textbox(self, textbox):
         """
+        Removes all contents of a textbox.
+
+        Parameter textbox: The textbox to be cleared.
+        Precondition: textbox is a textbox object.
         """
         assert isinstance(textbox, tk.Text)
 
@@ -175,7 +183,7 @@ class RecipeApp():
 
     def fetch_recipe(self):
         """
-
+        Fetches a recipe from the url within the input textbox and adds it to the database.
         """
         try:
             url = self.urltextbox.get('1.0', tk.END).strip()
@@ -252,6 +260,8 @@ class RecipeApp():
 
     def add_custom_recipe(self):
         """
+        Initializes a page to create a custom recipe.
+
 
         """
         recipe_name = self.recipenametextbox.get('1.0', tk.END).strip()
@@ -272,7 +282,7 @@ class RecipeApp():
 
     def recipes_page(self):
         """
-        Displays all the current recipes stored.
+        Initializes a page to display all the current recipes stored in database.
         """
         self.clear_frame()
         recipes_data = self.data.find_all_recipes()
@@ -292,9 +302,10 @@ class RecipeApp():
 
     def single_recipe_page(self,recipe_dict):
         """
-        Creates a page for a single recipe.
+        Initializes a page to view a recipe.
 
-        Parameter recipe_dict: a recipe as a dictionary
+        Parameter recipe_dict: the recipe to be viewed.
+        Precondition: recipe_dict is a dicitonary.
         """
         self.clear_frame()
 
@@ -316,11 +327,14 @@ class RecipeApp():
 
     def remove_recipe_page(self, recipe_dict):
         """
-        Creates a page to confirm you want to remove a recipe
+        Initializes a page to confirm you want to remove a recipe.
+
+        Parameter recipe_dict: the recipe to be removed.
+        Precond: recipe_dict is a dictionary.
         """
         self.clear_frame()
         label = tk.Label(
-            self.root, text= "Are you sure?", font=('Helvetica', 12))
+            self.root, text= "Are you sure you want to remove " + recipe_dict['name'] + "?", font=('Helvetica', 12))
         label.pack()
         button = tk.Button(
             self.root, text = "Yes", font = ('Helvetica',12), command = lambda r = recipe_dict: self.remove_recipe(r))
@@ -331,14 +345,20 @@ class RecipeApp():
         
     def remove_recipe(self, recipe_dict):
         """
-        Removes a recipe from a JSON file
+        Removes a recipe from the database.
+
+        Prameter recipe_dict: the recipe to be removed 
+        Precond: recipe_dict is a dictionary.
         """
         self.data.delete_recipe(recipe_dict['name'])
         self.recipes_page()
     
     def edit_recipes_page(self, recipe_dict):
         """
-        Creates a page to edit a recipe
+        Intializes the page to edit a recipe.
+
+        Parameter recipe_dict: the recipe to be edited.
+        Precondition: recipe_dict is a dictionary.
         """
         self.clear_frame()
 
