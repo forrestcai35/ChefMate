@@ -64,7 +64,7 @@ class AudioTranscriber:
             print("Transcription:", transcription)
             return transcription
 
-# Example usage:
+# Testing
 # transcriber = AudioTranscriber()
 # transcribe_text = transcriber.transcribe_from_microphone(5)
 # print(transcribe_text)

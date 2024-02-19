@@ -4,6 +4,7 @@ import Recipe
 import OpenAI
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
+import VoiceRecognition
 
 # Run this to build.exe file
 #pyinstaller --onefile --icon = ChefMateIcon.ico --noconsole App.py 

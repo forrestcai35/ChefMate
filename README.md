@@ -41,6 +41,9 @@ ChefMate is a chatbot-style assistant with integrated recipe storage capabilitie
 [![PyTorch][pytorch-shield]][pytorch-url]
 [![OpenAI][openai-shield]][openai-url]
 [![MongoDB][mongodb-shield]][mongodb-url]
+[![pandas][pandas-shield]][pandas-url]
+[![scikit-learn][scikit-shield]][scikit-url]
+
 
 
 <!-- GETTING STARTED -->
@@ -150,4 +153,9 @@ Project Link: [https://github.com/forrestcai35/ChefMate](https://github.com/forr
 [mongodb-shield]: https://img.shields.io/badge/MongoDB-%2347A248?style=for-the-badge&logo=MongoDB&labelColor=black
 [mongodb-url]: https://mongodb.com
 
+[pandas-shield]: https://img.shields.io/badge/pandas-%23150458?style=for-the-badge&logo=pandas&labelColor=black
+[pandas-url]: https://pandas.pydata.org/
 
+
+[scikit-shield]: https://img.shields.io/badge/scikit-%23F7931E?style=for-the-badge&logo=scikit-learn&labelColor=black
+[scikit-url]: https://scikit-learn.org/stable/

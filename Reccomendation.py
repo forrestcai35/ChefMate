@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
 
+#TODO Complete parameter training 
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -82,6 +83,7 @@ def interpret_preferences(output,threshold = 0.5):
         return "The user has no clear preference."
 
 
+#Testing
 print("Raw output (probabilities):", output)
 
 preferences = interpret_preferences(output[0], threshold=0.5)  # Adjust the threshold as needed
