@@ -39,7 +39,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-ChefMate is a chatbot-style assistant with integrated recipe storage capabilities.
+ChefMate is an adaptive chatbot-style assistant with integrated recipe storage capabilities.
 
 
 ### Built With
