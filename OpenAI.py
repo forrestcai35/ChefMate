@@ -1,6 +1,6 @@
 import os
 from openai import OpenAI
-import Reccomendation
+
 
 #Open API Key
 with open('.env') as f:

@@ -3,7 +3,7 @@ import requests
 from collections import defaultdict
 from pymongo import MongoClient
 
-class MongoDB():
+class DataBase():
     def __init__(self, db_name = "recipe_storage", collection_name = "recipes"):
         """
         Initialize MongoDB connection.

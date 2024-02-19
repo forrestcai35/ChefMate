@@ -18,7 +18,7 @@ class RecipeApp():
 
         self.root = ThemedTk(theme="equilux")
         self.ChefMate = OpenAI.ChefMate()
-        self.data = Recipe.MongoDB()
+        self.data = Recipe.DataBase()
         self.root.geometry("700x800")
         self.root.title("ChefMate - your personal culinary assistant")
         self.main_page()
@@ -165,7 +165,7 @@ class RecipeApp():
         self.lab.pack()
         
         self.urltextbox = tk.Text(
-            self.root, height=1, font = ('Helvetica', 20))
+            self.root, height=1, width = 80, font = ('Helvetica', 13))
         self.urltextbox.pack()
         self.urltextbox.bind("<Return>", lambda event: self.fetch_recipe())
 
@@ -229,11 +229,11 @@ class RecipeApp():
         """
         self.clear_frame()
         enter_name_lab = tk.Label(
-            self.root, text="Enter Recipe Name:", font = ('Helvetica', 2))
-        enter_name_lab.pack()
+            self.root, text="Enter Recipe Name:", font = ('Helvetica', 20))
+        enter_name_lab.pack(padx = 10)
 
-        self.recipenametextbox = tk.Text(self.root, height=1, width = 50, font = ('Helvetica', 20) )
-        self.recipenametextbox.pack()
+        self.recipenametextbox = tk.Text(self.root, height=1, width = 30, font = ('Helvetica', 20) )
+        self.recipenametextbox.pack(padx= 10, pady = 10)
 
         enter_ingr_lab = tk.Label(
             self.root, text="Enter Ingredients:", font = ('Helvetica', 20))
