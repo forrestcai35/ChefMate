@@ -18,7 +18,7 @@ class RecipeApp():
         """
 
         self.root = ThemedTk(theme="equilux")
-        self.ChefMate = OpenAI.ChefMate()
+        self.assistant = OpenAI.ChefMate()
         self.data = Recipe.DataBase()
         self.root.geometry("700x800")
         self.root.title("ChefMate - your personal culinary assistant")
@@ -35,10 +35,10 @@ class RecipeApp():
             self.root, text="ChefMate", font = ('Comic Sans MS', 30))
         lab.pack(pady=20)
 
-        self.chefmatetextbox = tk.Text(
+        self.assistant_textboxt = tk.Text(
             self.root, wrap="word", state=tk.DISABLED)
-        self.chefmatetextbox.pack()
-        self.chefmatetextbox.bind("<Return>", lambda event: self.chefmatetextbox.config(state = tk.DISABLED))
+        self.assistant_textboxt.pack()
+        self.assistant_textboxt.bind("<Return>", lambda event: self.assistant_textboxt.config(state = tk.DISABLED))
         
         chef = Image.open("Sprites/ChefMate.png")
         resized_chef = chef.resize((100, 200),Image.Resampling.LANCZOS)
@@ -103,7 +103,7 @@ class RecipeApp():
         """
         """
         try:
-            self.clear_textbox(self.chefmatetextbox)
+            self.clear_textbox(self.assistant_textboxt)
             user_input = self.usertextbox.get('1.0', tk.END).strip()
             if len(user_input) == 0:
                 pass
@@ -113,7 +113,7 @@ class RecipeApp():
             else:
                 #Add image of chefmate image thinking
                 self.userinputlabel.pack()
-                self.update_textbox(self.chefmatetextbox, self.ChefMate.ChefMateReply(user_input) + '\n\n')
+                self.update_textbox(self.assistant_textboxt, self.assistant.ChefMateReply(user_input) + '\n\n')
                 self.usertextbox.delete(1.0, tk.END)
                 #Switch back to chefmate
 
@@ -141,17 +141,17 @@ class RecipeApp():
     def chefmate_add(self):
         """
         """
-        self.clear_textbox(self.chefmatetextbox)
+        self.clear_textbox(self.assistant_textboxt)
         try:
-            self.ChefMate.temp = 0.3
+            self.assistant.temp = 0.3
             self.data.insert_recipe(
-                (Recipe._fromString(self.ChefMate.ChefMateReply("Please add the recipe you just outputted in the format given."))))
-            self.update_textbox(self.chefmatetextbox, "Recipe has been added!")
-            self.ChefMate.temp = 1
+                (Recipe._fromString(self.assistant.ChefMateReply("Please add the recipe you just outputted in the format given."))))
+            self.update_textbox(self.assistant_textboxt, "Recipe has been added!")
+            self.assistant.temp = 1
         except Exception as e: 
-            self.update_textbox(self.chefmatetextbox, "Your recipe has already been added!")
+            self.update_textbox(self.assistant_textboxt, "Your recipe has already been added!")
         except:
-            self.update_textbox(self.chefmatetextbox, "I encountered an error adding your recipe!")
+            self.update_textbox(self.assistant_textboxt, "I encountered an error adding your recipe!")
 
         self.new.destroy()
 
@@ -274,7 +274,7 @@ class RecipeApp():
             new_recipe = "name: " + recipe_name + " ingredients: " + recipe_ingredients + " instructions: " + recipe_instructions
             try:
                 self.data.insert_recipe((Recipe._fromString(
-                    self.ChefMate.ChefMateReply(
+                    self.assistant.ChefMateReply(
                         "Please format this recipe in the format instructed without changing it.\n"  + new_recipe))))
                 messagebox.showinfo("Notification", "Recipe has been added!")
             except:

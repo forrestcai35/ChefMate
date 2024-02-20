@@ -1,18 +1,24 @@
+from transformers import WhisperProcessor, WhisperForConditionalGeneration
 import whisper
 import pyaudio
 import wave
 import os
 import tempfile
+import certifi
+
+os.environ['SSL_CERT_FILE'] = certifi.where()
 
 class AudioTranscriber:
     def __init__(self, model_name="base"):
         # Load the Whisper model
-        self.model = whisper.load_model(model_name)
+        self.model = whisper.load_model("medium")
         # Initialize PyAudio
         self.pyaudio = pyaudio.PyAudio()
 
     def record_audio(self, record_seconds=5, wav_output_filename="output.wav"):
         # Audio recording parameters
+        print(f"* Start recording.")
+
         chunk = 1024
         format = pyaudio.paInt16
         channels = 1

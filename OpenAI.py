@@ -13,7 +13,7 @@ client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 class ChefMate():
     def __init__(self):
         """
-        Initializes a 
+        Initializes parameters to be passed into openAI model.
         """ 
         self.messages=[{"role": "system","content": ("You are named ChefMate and you should respond to queries about cooking or baking. " +
         "If asked to format a recipe follow the format: 'Name: recipe name Ingredients:ingredients Instructions:instructions'. " +
