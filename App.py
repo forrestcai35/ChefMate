@@ -149,7 +149,7 @@ class RecipeApp():
         try:
             self.assistant.temp = 0.3
             self.data.insert_recipe(
-                (Recipe._fromString(self.assistant.ChefMateReply("Please add the recipe you just outputted in the format given."))))
+                (Recipe.string_to_dict(self.assistant.ChefMateReply("Please add the recipe you just outputted in the format given."))))
             self.update_textbox(self.assistant_textboxt, "Recipe has been added!")
             self.assistant.temp = 1
         except Exception as e: 
@@ -275,7 +275,7 @@ class RecipeApp():
         else:
             new_recipe = "name: " + recipe_name + " ingredients: " + recipe_ingredients + " instructions: " + recipe_instructions
             try:
-                self.data.insert_recipe((Recipe._fromString(
+                self.data.insert_recipe((Recipe.string_to_dict(
                     self.assistant.ChefMateReply(
                         "Please format this recipe in the format instructed without changing it.\n"  + new_recipe))))
                 messagebox.showinfo("Notification", "Recipe has been added!")
@@ -313,7 +313,7 @@ class RecipeApp():
         self.clear_frame()
 
         self.recipetextbox = tk.Text(self.root, wrap="word", height=50, state = tk.DISABLED)
-        self.update_textbox(self.recipetextbox, Recipe._toString(recipe_dict))
+        self.update_textbox(self.recipetextbox, Recipe.dict_to_string(recipe_dict))
         self.recipetextbox.pack()
 
         button = tk.Button(
@@ -369,7 +369,7 @@ class RecipeApp():
             self.root, wrap="word", height= 50, state=tk.NORMAL)
 
         self.update_textbox(
-            self.recipetextbox, Recipe._toString(recipe_dict))
+            self.recipetextbox, Recipe.dict_to_string(recipe_dict))
         self.recipetextbox.pack()    
 
         button = tk.Button(
