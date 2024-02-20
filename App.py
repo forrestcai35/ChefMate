@@ -5,6 +5,20 @@ import OpenAI
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
 import VoiceRecognition
+from platform import system
+
+platformD = system()
+if platformD == 'Darwin':
+
+    logo_image = 'Sprites/ChefMateIcon.gif'
+
+elif platformD == 'Windows':
+
+    logo_image = 'Sprites/ChefMateIcon.ico'
+
+else:
+
+    logo_image = 'Sprites/ChefMateIcon.gif'
 
 # Run this to build.exe file
 #pyinstaller --onefile --icon = ChefMateIcon.ico --noconsole App.py 
@@ -20,8 +34,11 @@ class RecipeApp():
         self.root = ThemedTk(theme="equilux")
         self.assistant = OpenAI.ChefMate()
         self.data = Recipe.DataBase()
-        self.root.geometry("700x800")
-        self.root.iconbitmap(r'Sprites/ChefMateIcon.ico')
+        self.root.geometry("700x625")
+
+        icon = tk.Image("photo", file= logo_image)
+        self.root.tk.call('wm','iconphoto', self.root._w, icon)
+        
         self.root.title("ChefMate - your personal culinary assistant")
         self.main_page()
         self.root.mainloop()
@@ -33,27 +50,20 @@ class RecipeApp():
         self.clear_frame()
 
         lab = tk.Label(
-            self.root, text="ChefMate", font = ('Comic Sans MS', 30))
-        lab.pack(pady=20)
+            self.root, text="ChefMate", font = ('Comic Sans MS', 35))
+        lab.pack(padx=10)
 
         self.assistant_textboxt = tk.Text(
-            self.root, wrap="word", state=tk.DISABLED)
+            self.root, wrap="word", font = ('Helvetica', 13),state=tk.DISABLED)
         self.assistant_textboxt.pack()
         self.assistant_textboxt.bind("<Return>", lambda event: self.assistant_textboxt.config(state = tk.DISABLED))
-        
-        chef = Image.open("Sprites/ChefMate.png")
-        resized_chef = chef.resize((100, 200),Image.Resampling.LANCZOS)
-        chef_image = ImageTk.PhotoImage(resized_chef)
-        self.chef_image = tk.Label(self.root, image= chef_image)
-        self.chef_image.pack()
-        self.chef_image.image = chef_image
 
         self.userinputlabel = tk.Label(
-            self.root, text="Ask me a question ↓", font = ('Helvetica', 15))   
+            self.root, text="Ask a question ↓", font = ('Helvetica', 15))   
         self.userinputlabel.pack()
 
         self.usertextbox = tk.Text(
-            self.root, wrap="word", height=4)
+            self.root, wrap="word", height=6, font = ('Helvetica', 13))
         self.usertextbox.pack()
         self.usertextbox.bind("<Return>", lambda event: self.AIrespond())
 
@@ -312,7 +322,7 @@ class RecipeApp():
         """
         self.clear_frame()
 
-        self.recipetextbox = tk.Text(self.root, wrap="word", height=50, state = tk.DISABLED)
+        self.recipetextbox = tk.Text(self.root, wrap="word", height=40, state = tk.DISABLED)
         self.update_textbox(self.recipetextbox, Recipe.dict_to_string(recipe_dict))
         self.recipetextbox.pack()
 
