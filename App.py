@@ -21,6 +21,7 @@ class RecipeApp():
         self.assistant = OpenAI.ChefMate()
         self.data = Recipe.DataBase()
         self.root.geometry("700x800")
+        self.root.iconbitmap(r'Sprites/ChefMateIcon.ico')
         self.root.title("ChefMate - your personal culinary assistant")
         self.main_page()
         self.root.mainloop()
@@ -101,6 +102,7 @@ class RecipeApp():
 
     def AIrespond(self):
         """
+        Creates a response from the AI model.
         """
         try:
             self.clear_textbox(self.assistant_textboxt)
@@ -124,6 +126,7 @@ class RecipeApp():
 
     def chefmate_confirm(self, text):
         """
+        Creates a page to recieve confirmation from the user to add a recipe.
         """
         self.new = tk.Tk()
         self.new.title("Notification!")
@@ -140,6 +143,7 @@ class RecipeApp():
 
     def chefmate_add(self):
         """
+        Prompts the AI model to format the recipe and add it to the database.
         """
         self.clear_textbox(self.assistant_textboxt)
         try:
@@ -262,8 +266,6 @@ class RecipeApp():
     def add_custom_recipe(self):
         """
         Initializes a page to create a custom recipe.
-
-
         """
         recipe_name = self.recipenametextbox.get('1.0', tk.END).strip()
         recipe_ingredients = self.ingrtextbox.get('1.0', tk.END).strip()

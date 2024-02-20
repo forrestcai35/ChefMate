@@ -33,14 +33,17 @@ class ChefMate():
         """
         client = OpenAI()
         assert isinstance(user_input,str)
-    
+        if "recipe" in user_input or len(user_input) > 300:
+            tokens = 500
+        else: 
+            tokens = 300
         try:
             self.messages.append({"role": "user", "content": user_input})
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=self.messages,
                 temperature=self.temp,
-                max_tokens=500,
+                max_tokens=tokens,
                 top_p=1,
                 frequency_penalty=0,
                 presence_penalty=0

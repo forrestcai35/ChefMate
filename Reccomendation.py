@@ -71,7 +71,7 @@ criterion = nn.BCELoss()
 
 def interpret_preferences(output,threshold = 0.5):
     """
-    
+    Determines preference of user from select categories.
     """
     categories = ["American", "Italian", "Chinese", "Japanese", "Mexican", "Spanish", "Thai", "Korean",
     "Greek", "Vietnamese", "Indian", "African", "Filipio"]
