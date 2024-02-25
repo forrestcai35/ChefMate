@@ -62,13 +62,18 @@ Make sure you have Python 3.+ installed, installation can be found at [https://w
    ```sh
    git clone https://github.com/forrestcai35/ChefMate
    ```
-3. Install packages
+3. Create a virtual environment
+    '''sh
+      * python3 -m venv .venv
+      * source .venv/bin/activate
+    '''
+4. Install packages
    ```sh
    pip install -r requirements.txt
    ```
-4. Create a `.env`file
+5. Create a `.env`file
 
-5. Enter your API in `.env`
+6. Enter your API in `.env`
    ```js
    OPENAI_API_KEY = 'ENTER YOUR API KEY';
    ```
@@ -83,8 +88,6 @@ Make sure you have Python 3.+ installed, installation can be found at [https://w
 Currently you can use ChefMate to store recipes from [allrecipes.com](allrecipes.com) and [foodnetwork.com](foodnetwork.com). 
 
 ChefMate is also able to create its own unique recipes which you can add to the recipe book by prompting "add recipe".
-
-
 
 
 

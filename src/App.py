@@ -1,10 +1,10 @@
 import tkinter as tk
 from tkinter import messagebox
-import Recipe
-import OpenAI
+import Recipe 
+import OpenAI 
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
-import VoiceRecognition
+import VoiceRecognition as VoiceRecognition
 from platform import system
 
 platformD = system()

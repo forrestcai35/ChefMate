@@ -6,7 +6,7 @@ current_dir = Path(__file__).parent
 parent_dir = current_dir.parent
 sys.path.append(str(parent_dir))
 
-import OpenAI
+import src.OpenAI as OpenAI
 
 ChefMate = OpenAI.ChefMate()
 

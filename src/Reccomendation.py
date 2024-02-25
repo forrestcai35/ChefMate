@@ -1,25 +1,90 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import pandas as pd
-from sklearn import model_selection, metrics, preprocessing 
+import pandas as pd 
+from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
-
-#TODO Complete parameter training 
+import Recipe
+import json
+from sklearn.feature_extraction.text import CountVectorizer
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-df = pd.read_json("data/training.json")
-df.info()
+class ProcessData():
 
-df.id.nunique()
+    def __init__(self, path):
+        """
+        """
+        self.db = Recipe.DataBase()
+        self.df = pd.read_json(path)
+        with open("data/train.json", 'r') as f:
+            self.datalist = json.load(f)
+    
+        self.identify_cuisines()
+        self.tokenize_data()
+        
+        print(self.df)
+    def tokenize_data(self):
+        """
+        """
+        self.label_encoder = LabelEncoder()
+        self.vectorizer = CountVectorizer()
+        self.df['ingredients'] = self.df['ingredients'].apply(lambda x: ' '.join(x))
+        self.df['ingredients'] = self.vectorizer.fit_transform(self.df['ingredients']).toarray()
+        self.df['cuisine'] = self.label_encoder.fit_transform(self.df['cuisine'])
 
-df.cuisine.nunique()
+    def identify_cuisines(self):
+        """
+        """
+        cuisines = []
+        for recipe_dict in self.datalist:
+            if recipe_dict['cuisine'] not in cuisines:
+                cuisines.append(recipe_dict['cuisine'])
+        return cuisines
+    
+    def identify_matches(self):
+        self.datalist['ingredients']
 
-df.shape
+    def isolate_ingredients(self):
+        """
+        TODO
+        when the model is trained you want to take the apps data and isolate it's ingredients
+        """
+        for recipe in self.datalist['ingredients']:
 
+            print(recipe)
+
+    def return_preferences(self, predicted_labels):
+        """
+        """
+        predicted_labels = predicted_labels.numpy()  
+        original_cuisines = self.label_encoder.inverse_transform(predicted_labels)
+
+
+class Model(nn.Module):
+    """
+    """
+    def __init__(self, in_features = 1, h1 = 8, h2 = 8, out_features = 20):
+        """
+        """
+        super(Model, self).__init__()
+        self.fc1 = nn.Linear(in_features, h1)
+        self.fc2 = nn.Linear(h1,h2)
+        self.out = nn.Linear(h2, out_features)
+    
+    def forward(self, x):
+        """
+        """
+        x = torch.relu(self.fc1(x))
+        x = torch.relu(self.fc2(x))
+        x = self.out(x)
+        return x
+
+
+#Training
+    
 class RecipeDataset(Dataset):
     def __init__ (self, recipe_ids, cusine, ingredients):
         self.recipe_ids = recipe_ids
@@ -82,9 +147,14 @@ def interpret_preferences(output,threshold = 0.5):
     else:
         return "The user has no clear preference."
 
+path = 'data/train.json'
 
+print(ProcessData(path))
 #Testing
 print("Raw output (probabilities):", output)
 
 preferences = interpret_preferences(output[0], threshold=0.5)  # Adjust the threshold as needed
 print(preferences)
+
+torch.manual_seed(42)
+mode = Model()
