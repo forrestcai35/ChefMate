@@ -77,6 +77,12 @@ Make sure you have Python 3.+ installed, installation can be found at [https://w
    ```js
    OPENAI_API_KEY = 'ENTER YOUR API KEY';
    ```
+7. (OPTIONAL) Run this to build.exe file
+   ```sh
+   pyinstaller --onefile --icon = ChefMateIcon.ico --noconsole App.py
+   ```
+
+
 
 
 

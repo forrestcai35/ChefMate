@@ -21,9 +21,6 @@ else:
 
     logo_image = 'Sprites/ChefMateIcon.gif'
 
-# Run this to build.exe file
-#pyinstaller --onefile --icon = ChefMateIcon.ico --noconsole App.py 
-
 
 class RecipeApp():
 
