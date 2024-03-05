@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import Recipe 
 import OpenAI 
+import Database
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
 import VoiceRecognition as VoiceRecognition
