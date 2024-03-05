@@ -7,6 +7,7 @@ from ttkthemes import ThemedTk
 import VoiceRecognition as VoiceRecognition
 from platform import system
 
+# Check for system for logo file type
 platformD = system()
 if platformD == 'Darwin':
 
@@ -214,6 +215,10 @@ class RecipeApp():
 
     def save_recipe(self,recipe_dict):
         """
+        Saves a recipe to the database.
+
+        Parameter recipe_dict: the recipe to add.
+        Precond: recipe_dict is a dictionary of a recipe.
         """
         if self.data.recipe_in_data(recipe_dict):
                 messagebox.showinfo("Notficiation!", "Recipe has already been added.")
