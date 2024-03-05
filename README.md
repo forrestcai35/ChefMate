@@ -63,12 +63,10 @@ Make sure you have Python 3.+ installed, installation can be found at [https://w
    git clone https://github.com/forrestcai35/ChefMate
    ```
 3. Create a virtual environment
-    '''sh
-    
+   ```sh
       * python3 -m venv .venv
       * source .venv/bin/activate
-
-    '''
+   ```
 4. Install packages
    ```sh
    pip install -r requirements.txt
