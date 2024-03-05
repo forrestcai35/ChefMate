@@ -30,6 +30,9 @@ class ChefMate():
     def ChefMateReply(self,user_input):
         """
         Returns a string reply from AI model.
+
+        Parameter user_input: the input from the user.
+        Precondition: user_input is a string.
         """
         client = OpenAI()
         assert isinstance(user_input,str)

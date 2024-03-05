@@ -64,8 +64,10 @@ Make sure you have Python 3.+ installed, installation can be found at [https://w
    ```
 3. Create a virtual environment
     '''sh
+    
       * python3 -m venv .venv
       * source .venv/bin/activate
+
     '''
 4. Install packages
    ```sh
