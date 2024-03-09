@@ -32,7 +32,7 @@ class RecipeApp():
 
         self.root = ThemedTk(theme="equilux")
         self.assistant = OpenAI.ChefMate()
-        self.data = Recipe.DataBase()
+        self.data = Database.DataBase()
         self.root.geometry("700x625")
 
         icon = tk.Image("photo", file= logo_image)
@@ -389,14 +389,13 @@ class RecipeApp():
             self.root, text = "Done", font = ('Helvetica',12), command = lambda r = recipe_dict: self.single_recipe_page(r))
         button.pack()
 
-    def change_recipe(self, recipe_dict):
+    def edit_recipe(self, recipe_dict):
         """
         TODO
         """
-        self.recipetextbox
-        self.single_recipe_page(recipe_dict)
-        #Add functionality to edit the json storage of the recipe
+        edited_recipe = self.assistant.ChefMateReply(self.recipetextbox)
+        
 
-    
+        
 RecipeApp().mainloop()
 

@@ -6,7 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import matplotlib.pyplot as plt
 from torch.utils.data import Dataset, DataLoader
-import Recipe
+import Database
 import json
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -17,7 +17,7 @@ class ProcessData():
     def __init__(self, path):
         """
         """
-        self.db = Recipe.DataBase()
+        self.db = Database.DataBase()
         self.df = pd.read_json(path)
         with open("data/train.json", 'r') as f:
             self.datalist = json.load(f)
@@ -26,6 +26,7 @@ class ProcessData():
         self.tokenize_data()
         
         print(self.df)
+        
     def tokenize_data(self):
         """
         """
@@ -64,8 +65,7 @@ class ProcessData():
 
 
 class Model(nn.Module):
-    """
-    """
+
     def __init__(self, in_features = 1, h1 = 8, h2 = 8, out_features = 20):
         """
         """
@@ -87,13 +87,21 @@ class Model(nn.Module):
     
 class RecipeDataset(Dataset):
     def __init__ (self, recipe_ids, cusine, ingredients):
+        """
+        """
         self.recipe_ids = recipe_ids
         self.cusine = cusine 
         self.ingredinets = ingredients
     def __len__ (self):
+        """
+        Returns length of the recipe dataset.
+        """
         return len(self.recipe_ids)
 
     def __getitem__(self,item):
+        """
+        Returns item from recipe dataset.
+        """
         recipe_id = self.recipe_ids[item]
         cuisine = self.cusine[item]
         ingredients = self.ingredinets[item]
@@ -117,6 +125,8 @@ class UserPreferenceModel(nn.Module):
         self.fc3 = nn.Linear(64, item_N)  # Assuming output size matches number of categories
 
     def forward(self, item_ids):
+        """
+        """
         item_embeddings = self.item_embedding_layer(item_ids)  # Get embeddings for input item IDs
         x = torch.relu(self.fc1(item_embeddings))
         x = torch.relu(self.fc2(x))
