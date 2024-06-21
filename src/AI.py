@@ -1,5 +1,7 @@
 import os
 from openai import OpenAI
+import Reccomendation
+
 
 
 #Open API Key
@@ -15,25 +17,28 @@ class ChefMate():
         """
         Initializes parameters to be passed into openAI model.
         """ 
+        self.prefernece = ""
         self.messages=[{"role": "system","content": ("You are named ChefMate and you should respond to queries about cooking or baking. " +
         "If asked to format a recipe follow the format: 'Name: recipe name Ingredients:ingredients Instructions:instructions'. " +
-        ""
+        self.prefernece
         )}]
         self.temp = 1.0
 
-    def get_reccomendation(self, reccomendation, temp):
+    def get_reccomendation(self, data, temp = 0.5):
         """
-        TODO
         Get parameters to add prompt, and adjust the temperature.
         """
 
-    def ChefMateReply(self,user_input):
+
+
+    def ChefMateReply(self,user_input, data):
         """
         Returns a string reply from AI model.
 
         Parameter user_input: the input from the user.
         Precondition: user_input is a string.
         """
+        self.prefernece = self.get_reccomendation(data)
         client = OpenAI()
         assert isinstance(user_input,str)
         if "recipe" in user_input or len(user_input) > 300:

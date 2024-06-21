@@ -6,9 +6,9 @@ current_dir = Path(__file__).parent
 parent_dir = current_dir.parent
 sys.path.append(str(parent_dir))
 
-import src.OpenAI as OpenAI
+import AI as AI
 
-ChefMate = OpenAI.ChefMate()
+ChefMate = AI.ChefMate()
 
 ChefMate.ChefMateReply("Please give me a recipe for chicken.")
 print(ChefMate.ChefMateReply("Please add the recipe you just outputted in the format given."))

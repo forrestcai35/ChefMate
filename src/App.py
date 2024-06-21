@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import Recipe 
-import OpenAI 
+import AI 
 import Database
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
@@ -31,7 +31,7 @@ class RecipeApp():
         """
 
         self.root = ThemedTk(theme="equilux")
-        self.assistant = OpenAI.ChefMate()
+        self.assistant = AI.ChefMate()
         self.data = Database.DataBase()
         self.root.geometry("700x625")
 
@@ -124,7 +124,7 @@ class RecipeApp():
             else:
                 #Add image of chefmate image thinking
                 self.userinputlabel.pack()
-                self.update_textbox(self.assistant_textboxt, self.assistant.ChefMateReply(user_input) + '\n\n')
+                self.update_textbox(self.assistant_textboxt, self.assistant.ChefMateReply(user_input, self.data.find_all_recipes) + '\n\n')
                 self.usertextbox.delete(1.0, tk.END)
                 #Switch back to chefmate
 
@@ -158,7 +158,7 @@ class RecipeApp():
         try:
             self.assistant.temp = 0.3
             self.data.insert_recipe(
-                (Recipe.string_to_dict(self.assistant.ChefMateReply("Please add the recipe you just outputted in the format given."))))
+                (Recipe.string_to_dict(self.assistant.ChefMateReply("Please add the recipe you just outputted in the format given.", self.data.find_all_recipes))))
             self.update_textbox(self.assistant_textboxt, "Recipe has been added!")
             self.assistant.temp = 1
         except Exception as e: 
@@ -290,7 +290,7 @@ class RecipeApp():
             try:
                 self.data.insert_recipe((Recipe.string_to_dict(
                     self.assistant.ChefMateReply(
-                        "Please format this recipe in the format instructed without changing it.\n"  + new_recipe))))
+                        "Please format this recipe in the format instructed without changing it.\n"  + new_recipe, self.data.find_all_recipes))))
                 messagebox.showinfo("Notification", "Recipe has been added!")
             except:
                 messagebox.showerror("Notification!" , "I encountered an error adding your recipe!")
@@ -393,7 +393,7 @@ class RecipeApp():
         """
         TODO
         """
-        edited_recipe = self.assistant.ChefMateReply(self.recipetextbox)
+        edited_recipe = self.assistant.ChefMateReply(self.recipetextbox,self.data.find_all_recipes)
         
 
         

@@ -20,7 +20,7 @@ class DataBase():
 
     def find_all_recipes(self):
         """
-        Find all recipes in the collection.
+        Returns all recipes in the collection as a list.
         """
         return list(self.collection.find())
 

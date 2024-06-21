@@ -110,8 +110,6 @@ class RecipeDataset(Dataset):
                 , "cuisine": torch.tensor(cuisine, dtype = torch.long)
                 , "ingredients": torch.tensor(ingredients, dtype = torch.long)}
 
-item_N = 13  
-embedding_dim = 5
 
 class UserPreferenceModel(nn.Module):
     def __init__(self, item_N, embedding_dim):
@@ -132,16 +130,7 @@ class UserPreferenceModel(nn.Module):
         x = torch.relu(self.fc2(x))
         x = torch.sigmoid(self.fc3(x))  # Use sigmoid to get probabilities for each category
         return x
-    
-model = UserPreferenceModel(item_N, embedding_dim)
 
-item_ids = torch.LongTensor([1,2,3])
-output = model(item_ids)
-
-#Intepretation
-criterion = nn.BCELoss()
-# Make sure your targets are appropriate for BCELoss (binary)
-# Example training loop, loss calculation, and optimization steps would go here
 
 
 def interpret_preferences(output,threshold = 0.5):
@@ -156,15 +145,29 @@ def interpret_preferences(output,threshold = 0.5):
         return "The user has a preference for: " + ", ".join(preferences) + "."
     else:
         return "The user has no clear preference."
+    
+item_N = 13  
+embedding_dim = 5
+
+model = UserPreferenceModel(item_N, embedding_dim)
+
+item_ids = torch.LongTensor([1,2,3])
+output = model(item_ids)
+
+#Intepretation
+criterion = nn.BCELoss()
+# Make sure your targets are appropriate for BCELoss (binary)
+# Example training loop, loss calculation, and optimization steps would go here
+
 
 path = 'data/train.json'
 
-print(ProcessData(path))
-#Testing
-print("Raw output (probabilities):", output)
+# print(ProcessData(path))
+# #Testing
+# print("Raw output (probabilities):", output)
 
-preferences = interpret_preferences(output[0], threshold=0.5)  # Adjust the threshold as needed
-print(preferences)
+# preferences = interpret_preferences(output[0], threshold=0.5)  # Adjust the threshold as needed
+# print(preferences)
 
-torch.manual_seed(42)
-mode = Model()
+# torch.manual_seed(42)
+# mode = Model()
