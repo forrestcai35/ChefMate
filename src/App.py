@@ -391,7 +391,7 @@ class RecipeApp():
 
     def edit_recipe(self, recipe_dict):
         """
-        TODO
+        
         """
         edited_recipe = self.assistant.ChefMateReply(self.recipetextbox,self.data.find_all_recipes)
         
