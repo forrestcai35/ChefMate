@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import Recipe 
-import AI 
+import model.AI as AI 
 import Database
 from PIL import Image, ImageTk 
 from ttkthemes import ThemedTk
@@ -11,15 +11,10 @@ from platform import system
 # Check for system for logo file type
 platformD = system()
 if platformD == 'Darwin':
-
     logo_image = 'Sprites/ChefMateIcon.gif'
-
 elif platformD == 'Windows':
-
     logo_image = 'Sprites/ChefMateIcon.ico'
-
 else:
-
     logo_image = 'Sprites/ChefMateIcon.gif'
 
 
